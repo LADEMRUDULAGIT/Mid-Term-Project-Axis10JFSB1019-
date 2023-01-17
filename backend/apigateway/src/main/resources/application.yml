@@ -1,0 +1,18 @@
+server:
+  port: 8095
+spring:
+  application:
+    name: ApiGateway
+  cloud:
+    gateway:
+      routes:
+      - id: EmployeeLeave
+        uri: 
+            lb://EmployeeLeave
+        predicates:
+        - Path=/leave/** 
+      - id: EmployeeManagement
+        uri: 
+            lb://EmployeeManagement
+        predicates:
+        - Path=/employee/** 
